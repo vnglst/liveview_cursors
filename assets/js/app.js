@@ -28,7 +28,22 @@ import topbar from "../vendor/topbar";
 let csrfToken = document
   .querySelector("meta[name='csrf-token']")
   .getAttribute("content");
+
+let Hooks = {};
+
+Hooks.TrackClientCursor = {
+  mounted() {
+    console.log("[TrackClientCursor] mounted");
+    document.addEventListener("mousemove", (e) => {
+      const x = (e.pageX / window.innerWidth) * 100; // in %
+      const y = (e.pageY / window.innerHeight) * 100; // in %
+      this.pushEvent("cursor-move", { x, y });
+    });
+  },
+};
+
 let liveSocket = new LiveSocket("/live", Socket, {
+  hooks: Hooks,
   params: { _csrf_token: csrfToken },
 });
 

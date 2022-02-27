@@ -10,9 +10,18 @@ defmodule LiveviewCursorsWeb.Cursors do
     {:ok, updated}
   end
 
+  def handle_event("cursor-move", %{"x" => x, "y" => y}, socket) do
+    updated =
+      socket
+      |> assign(:x, x)
+      |> assign(:y, y)
+
+    {:noreply, updated}
+  end
+
   def render(assigns) do
     ~H"""
-    <ul class="list-none">
+    <ul class="list-none" id="cursors" phx-hook="TrackClientCursor">
       <li style={"color: deeppink; left: #{@x}%; top: #{@y}%"} class="absolute">
         <svg
         version="1.1"
