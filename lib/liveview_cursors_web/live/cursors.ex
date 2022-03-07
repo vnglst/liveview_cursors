@@ -1,4 +1,5 @@
 defmodule LiveviewCursorsWeb.Cursors do
+  import LiveviewCursorsWeb.Colors
   alias LiveviewCursorsWeb.Presence
   use LiveviewCursorsWeb, :live_view
 
@@ -61,7 +62,8 @@ defmodule LiveviewCursorsWeb.Cursors do
     ~H"""
     <ul class="list-none" id="cursors" phx-hook="TrackClientCursor">
       <%= for user <- @users do %>
-        <li style={"color: deeppink; left: #{user.x}%; top: #{user.y}%"} class="flex flex-col absolute pointer-events-none whitespace-nowrap overflow-hidden">
+        <% color = getHSL(user.name) %>
+        <li style={"color: #{color}; left: #{user.x}%; top: #{user.y}%"} class="flex flex-col absolute pointer-events-none whitespace-nowrap overflow-hidden">
           <svg
           version="1.1"
           width="25px"
@@ -77,7 +79,7 @@ defmodule LiveviewCursorsWeb.Cursors do
             points="9.2,7.3 9.2,18.5 12.2,15.6 12.6,15.5 17.4,15.5"
             />
           </svg>
-          <span style={"background-color: deeppink;"} class="mt-1 ml-4 px-1 text-sm text-white"><%= user.name %></span>
+          <span style={"background-color: #{color};"} class="mt-1 ml-4 px-1 text-sm text-white"><%= user.name %></span>
         </li>
       <% end %>
     </ul>
