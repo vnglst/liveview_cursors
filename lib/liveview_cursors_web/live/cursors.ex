@@ -85,7 +85,7 @@ defmodule LiveviewCursorsWeb.Cursors do
           id="submit-msg"
           type="submit"
           class="flex-shrink-0 bg-pink-600 text-white text-base font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-pink-200"
-          value="Change"
+          value="Send"
         />
       </form>
       <ul class="list-none" id="cursors" phx-hook="TrackClientCursor">
