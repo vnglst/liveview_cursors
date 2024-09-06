@@ -10,7 +10,7 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :liveview_cursors, LiveviewCursorsWeb.Endpoint,
-  check_origin: ["https://liveview-cursors-bn8bw.ondigitalocean.app"],
+  check_origin: ["https://liveview-cursors.koenvangilst.nl/"],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
