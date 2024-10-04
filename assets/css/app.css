@@ -28,9 +28,7 @@ body {
 
 @keyframes floating-heart {
   0% {
-    opacity: 0.1;
-    bottom: 0;
-    right: -50%;
+    opacity: 0;
   }
   10% {
     opacity: 0.5;
